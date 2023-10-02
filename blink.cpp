@@ -1,21 +1,18 @@
-/*
-C++ code
+"""
 Created by: Youngwook Go
-Created on: Sep 2023
+Created on: OCT 2023
 Blinks a LED
-*/
+"""
 
-int pin5 = 5;
+import time
+import board
+import digitalio
 
-void setup()
-{
-  pinMode(pin5, OUTPUT);
-}
+led = digitalio.DigitalInOut(board.GP14)
+led.direction = digitalio.Direction.OUTPUT
 
-void loop()
-{
-  digitalWrite(pin5, HIGH);
-  delay(1000); // Wait for 1000 millisecond(s)
-  digitalWrite(pin5, LOW);
-  delay(1000); // Wait for 1000 millisecond(s)
-}
+while True:
+	led.value = True
+	time.sleep(1)
+	led.value = False
+	time.sleep (1)
